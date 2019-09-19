@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace ShoeStore.Products.Domain
 {
@@ -19,5 +20,7 @@ namespace ShoeStore.Products.Domain
         public decimal Cost { get; set; }
 
         public int Stock { get; set; }
+
+        public List<CatalogueProduct> CatalogueProducts { get; set; }
     }
 }

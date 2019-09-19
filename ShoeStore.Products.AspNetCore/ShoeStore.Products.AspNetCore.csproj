@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.6" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.4" />
   </ItemGroup>
 
   <ItemGroup>
@@ -18,6 +19,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ShoeStore.Products.Domain\ShoeStore.Products.Domain.csproj" />
+    <ProjectReference Include="..\ShoeStore.Products.Infrastructure\ShoeStore.Products.Infrastructure.csproj" />
+    <ProjectReference Include="..\ShoeStore.Products.Tasks\ShoeStore.Products.Tasks.csproj" />
   </ItemGroup>
 
 </Project>

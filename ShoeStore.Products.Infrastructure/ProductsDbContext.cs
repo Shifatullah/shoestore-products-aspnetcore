@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ShoeStore.Products.Domain;
-using System;
 
 namespace ShoeStore.Products.Infrastructure
 {
@@ -29,7 +28,7 @@ namespace ShoeStore.Products.Infrastructure
 
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("conn string here");
+                //optionsBuilder.UseSqlServer(_config.GetConnectionString("scdbConnectionString"));
             }
         }
 

@@ -27,7 +27,7 @@ namespace ShoeStore.Products.AspNetCore
         {
             services.AddMvc();
             services.AddDbContext<ProductsDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("scdbConnectionString")));
+                options.UseSqlServer(Configuration.GetValue<string>("SdcConnectionString")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

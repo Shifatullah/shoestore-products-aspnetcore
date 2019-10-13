@@ -5,6 +5,12 @@ namespace ShoeStore.Products.Infrastructure
 {
     public class ProductsDbContext : DbContext
     {
+
+        public ProductsDbContext(DbContextOptions<ProductsDbContext> options) : base(options)
+        {
+
+        }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -25,11 +31,6 @@ namespace ShoeStore.Products.Infrastructure
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
-
-            if (!optionsBuilder.IsConfigured)
-            {
-                //optionsBuilder.UseSqlServer(_config.GetConnectionString("scdbConnectionString"));
-            }
         }
 
         public DbSet<Product> Products { get; set; }

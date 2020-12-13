@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ShoeStore.Products.Domain;
 
@@ -12,6 +13,7 @@ namespace ShoeStore.Products.AspNetCore.Controllers
     {
         // GET api/values
         [HttpGet]
+        [Authorize]
         public IEnumerable<Product> GetProducts()
         {
             List<Product> products = new List<Product>();

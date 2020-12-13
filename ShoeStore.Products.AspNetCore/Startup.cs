@@ -25,20 +25,32 @@ namespace ShoeStore.Products.AspNetCore
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAuthentication("Bearer")
+                .AddIdentityServerAuthentication("Bearer", options =>
+                {
+                    options.ApiName = "productsAPI";
+                    options.Authority = "https://localhost:5001";
+                });
+
+            services.AddCors(
+                options => options.AddPolicy("shoestore-admin",
+                builder => builder.AllowAnyOrigin()
+                                  .AllowAnyMethod()
+                                  .AllowAnyHeader()
+            ));
             services.AddMvc();
             services.AddDbContext<ProductsDbContext>(options =>
-                options.UseSqlServer(Configuration.GetValue<string>("SdcConnectionString")));
+            options.UseSqlServer(Configuration.GetValue<string>("SdcConnectionString")));            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-
-            app.UseMvc();
+            app.UseRouting();
+            app.UseAuthentication();
+            app.UseAuthorization();
+            app.UseCors("shoestore-admin");           
+            app.UseEndpoints(endpoints => endpoints.MapDefaultControllerRoute());
         }
     }
 }

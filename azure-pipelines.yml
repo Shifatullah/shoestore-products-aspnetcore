@@ -28,14 +28,9 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-- task: VSTest@2
-  inputs:
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
-
 - task: Docker@2
   inputs:
     containerRegistry: 'Docker Hub Shifatullah'
     repository: 'shifatullah/shoestore-products-aspnetcore'
     command: 'buildAndPush'
-    Dockerfile: '**/Dockerfile'
+    Dockerfile: '**/DockerfileAzure'

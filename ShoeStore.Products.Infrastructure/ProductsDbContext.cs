@@ -8,12 +8,13 @@ namespace ShoeStore.Products.Infrastructure
 {
     public class ProductsDbContext : DbContext
     {
-        public ProductsDbContext(){
-        }
+        IConfiguration _configuration;
+
+        public ProductsDbContext(){}
 
         public ProductsDbContext(DbContextOptions<ProductsDbContext> options) : base(options)
         {
-
+            
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -39,9 +40,8 @@ namespace ShoeStore.Products.Infrastructure
 
             if (!optionsBuilder.IsConfigured)
             {
-                IConfigurationRoot configuration = new ConfigurationBuilder()
-                   .Build();
-                   optionsBuilder.UseSqlServer("<con srting>");                
+                //TODO: read connection string from config file
+                optionsBuilder.UseSqlServer("put connection string here");
             }
         }
 

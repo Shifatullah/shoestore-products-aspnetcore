@@ -1,8 +1,8 @@
-FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS base
+FROM microsoft/aspnetcore:2.0-stretch AS base
 WORKDIR /app
 EXPOSE 80
 
-FROM mcr.microsoft.com/dotnet/core/aspnet:3.1 AS build
+FROM microsoft/aspnetcore-build:2.0-stretch AS build
 WORKDIR /src
 COPY ["ShoeStore.Products.AspNetCore/ShoeStore.Products.AspNetCore.csproj", "ShoeStore.Products.AspNetCore/"]
 COPY ["ShoeStore.Products.Infrastructure/ShoeStore.Products.Infrastructure.csproj", "ShoeStore.Products.Infrastructure/"]

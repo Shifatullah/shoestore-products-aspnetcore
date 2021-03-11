@@ -1,10 +1,15 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System;
+using System.IO;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using ShoeStore.Products.Domain;
 
 namespace ShoeStore.Products.Infrastructure
 {
     public class ProductsDbContext : DbContext
     {
+        public ProductsDbContext(){
+        }
 
         public ProductsDbContext(DbContextOptions<ProductsDbContext> options) : base(options)
         {
@@ -31,6 +36,13 @@ namespace ShoeStore.Products.Infrastructure
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
+
+            if (!optionsBuilder.IsConfigured)
+            {
+                IConfigurationRoot configuration = new ConfigurationBuilder()
+                   .Build();
+                   optionsBuilder.UseSqlServer("<con srting>");                
+            }
         }
 
         public DbSet<Product> Products { get; set; }

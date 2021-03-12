@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ShoeStore.Products.Domain
 {
@@ -17,6 +18,7 @@ namespace ShoeStore.Products.Domain
 
         public string LongDescription { get; set; }
 
+        [Column(TypeName = "decimal(18,4)")]
         public decimal Cost { get; set; }
 
         public int Stock { get; set; }

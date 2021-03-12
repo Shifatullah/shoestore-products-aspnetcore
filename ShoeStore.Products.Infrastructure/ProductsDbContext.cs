@@ -7,9 +7,7 @@ using ShoeStore.Products.Domain;
 namespace ShoeStore.Products.Infrastructure
 {
     public class ProductsDbContext : DbContext
-    {
-        IConfiguration _configuration;
-
+    {        
         public ProductsDbContext(){}
 
         public ProductsDbContext(DbContextOptions<ProductsDbContext> options) : base(options)

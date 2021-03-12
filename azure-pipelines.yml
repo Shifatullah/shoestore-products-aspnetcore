@@ -37,4 +37,4 @@ steps:
     containerRegistry: 'Docker Hub Shifatullah'
     repository: 'shifatullah/shoestore-products-aspnetcore'
     command: 'buildAndPush'
-    Dockerfile: '**/DockerfileAzure'
+    Dockerfile: '**/Dockerfile'

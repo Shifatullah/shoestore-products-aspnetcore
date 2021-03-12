@@ -40,7 +40,7 @@ namespace ShoeStore.Products.AspNetCore
             //));
             services.AddMvc();
             services.AddDbContext<ProductsDbContext>(options =>
-            options.UseSqlServer(Configuration.GetValue<string>("ss_products_db_connection_string")));            
+            options.UseSqlServer(Configuration.GetValue<string>("ss-products-db-connection-string")));            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

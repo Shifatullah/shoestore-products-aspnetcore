@@ -21,7 +21,7 @@ namespace ShoeStore.Products.AspNetCore.Controllers
             products.Add(new Product()
             {
                 Id = 1,
-                Name = "iPhone 8",
+                Name = "iPhone 9",
                 Code = "iP8",
                 Cost = 1000,
                 ShortDescription = "iPhone 8 mobile phone",

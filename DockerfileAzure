@@ -1,5 +1,5 @@
 ARG STGDIR=$(Build.StagingDirectory)
-FROM mcr.microsoft.com/dotnet/core/aspnet:3.1
+FROM microsoft/aspnetcore:2.0-stretch
 WORKDIR /app
 EXPOSE 80
 COPY $STGDIR /app

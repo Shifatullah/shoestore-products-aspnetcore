@@ -44,6 +44,10 @@ namespace ShoeStore.Products.AspNetCore
             //app.UseAuthorization();
             //app.UseCors("shoestore-admin");           
             app.UseEndpoints(endpoints => endpoints.MapDefaultControllerRoute());
+
+            using (var scope = app.ApplicationServices.CreateScope())
+            using (var context = scope.ServiceProvider.GetService<ProductsDbContext>())
+                context.Database.Migrate();
         }
     }
 }

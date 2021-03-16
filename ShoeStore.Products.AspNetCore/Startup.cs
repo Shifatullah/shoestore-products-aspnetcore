@@ -22,7 +22,7 @@ namespace ShoeStore.Products.AspNetCore
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            string identityUrl = Configuration.GetValue<string>("ss_identity_url");
+            string identityUrl = Configuration.GetValue<string>("ss-identity-url");
 
             services.AddAuthentication("Bearer")
                 .AddIdentityServerAuthentication("Bearer", options =>

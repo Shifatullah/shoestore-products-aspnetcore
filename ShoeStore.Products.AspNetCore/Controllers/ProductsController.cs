@@ -13,7 +13,7 @@ namespace ShoeStore.Products.AspNetCore.Controllers
     {
         // GET api/values
         [HttpGet]
-        //[Authorize]
+        [Authorize]
         public IEnumerable<Product> GetProducts()
         {
             List<Product> products = new List<Product>();

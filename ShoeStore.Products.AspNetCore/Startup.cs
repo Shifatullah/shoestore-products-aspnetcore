@@ -28,7 +28,10 @@ namespace ShoeStore.Products.AspNetCore
                 .AddIdentityServerAuthentication("Bearer", options =>
                 {
                     options.ApiName = "productsAPI";
-                    options.Authority = identityUrl;
+                    options.Authority = identityUrl;                    
+                }).AddJwtBearer(o =>
+                {
+                    o.TokenValidationParameters.ValidateIssuer = false;
                 });
 
             //services.AddCors(

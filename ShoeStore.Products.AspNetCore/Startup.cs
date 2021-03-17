@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -24,14 +25,12 @@ namespace ShoeStore.Products.AspNetCore
         {
             string identityUrl = Configuration.GetValue<string>("ss-identity-url");
 
-            services.AddAuthentication("Bearer")
-                .AddIdentityServerAuthentication("Bearer", options =>
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(options =>
                 {
-                    options.ApiName = "productsAPI";
-                    options.Authority = identityUrl;                    
-                }).AddJwtBearer(o =>
-                {
-                    o.TokenValidationParameters.ValidateIssuer = false;
+                    options.Audience = "productsAPI";
+                    options.Authority = identityUrl;
+                    options.TokenValidationParameters.ValidateIssuer = false;
                 });
 
             //services.AddCors(

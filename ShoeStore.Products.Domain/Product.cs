@@ -23,6 +23,21 @@ namespace ShoeStore.Products.Domain
 
         public int Stock { get; set; }
 
+        public Category Category { get; set; }
+
+        public Brand Brand { get; set; }
+
+        public string Size { get; set; }
+
+        public Gender Gender { get; set; }
+
+        public AgeGroup AgeGroup { get; set; }
+
+        public Colour Colour { get; set; }
+
+        [Column(TypeName = "decimal(18,4)")]
+        public decimal Price { get; set; }
+
         public List<CatalogueProduct> CatalogueProducts { get; set; }
     }
 }
